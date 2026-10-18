@@ -300,7 +300,7 @@ export default function monitorExtension(api: ExtensionAPI) {
 			}
 			killWatch(watch);
 			finalize(watch, "stopped");
-			return { content: `Monitor ${params.taskId} (${watch.description}) stopped. ${watch.eventCount} events total.`, details: { stopped: params.taskId } };
+			return { content: [{ type: "text", text: `Monitor ${params.taskId} (${watch.description}) stopped. ${watch.eventCount} events total.` }], details: { stopped: params.taskId } };
 		},
 	});
 
@@ -312,7 +312,7 @@ export default function monitorExtension(api: ExtensionAPI) {
 		annotations: { readOnlyHint: true },
 		execute: async () => {
 			if (watches.size === 0) {
-				return { content: "No running monitors.", details: { watches: [] } };
+				return { content: [{ type: "text", text: "No running monitors." }], details: { watches: [] } };
 			}
 			const list = [...watches.values()].map((w) => ({
 				taskId: w.id,
