@@ -1,0 +1,12 @@
+{
+	"name": "pi-monitor",
+	"version": "0.1.0",
+	"description": "Monitor tool for pi: stream events from a background command or WebSocket as live notifications, like Claude Code's Monitor",
+	"keywords": ["pi-package"],
+	"pi": {
+		"extensions": ["./index.ts"]
+	},
+	"peerDependencies": {
+		"@earendil-works/pi-coding-agent": "*"
+	}
+}
